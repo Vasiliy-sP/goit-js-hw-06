@@ -5,21 +5,23 @@ const customer = {
   orders: ["Burger", "Pizza", "Salad"],
   // Change code below this line
   getBalance() {
-    return balance;
+    return this.#balance;
   },
   getDiscount() {
-    return discount;
+    return this.#discount;
   },
   setDiscount(value) {
     discount = value;
   },
   getOrders() {
-    return orders;
+    return this.#orders;
   },
   addOrder(cost, order) {
-    balance -= cost - cost * discount;
-    orders.push(order);
+    const finalPrice = cost * (1 - this.#discount);
+    this.#balance -= finalPrice;
+    this.#orders.push(order);
   },
+
   // Change code above this line
 };
 
